@@ -1,0 +1,12 @@
+using UnityEngine;
+
+#ROOTNAMESPACEBEGIN#
+public class #SCRIPTNAME# : SingletonMono<#SCRIPTNAME#>
+{
+    protected override void Awake()
+    {
+        base.Awake();
+        #NOTRIM#
+    }
+}
+#ROOTNAMESPACEEND#
