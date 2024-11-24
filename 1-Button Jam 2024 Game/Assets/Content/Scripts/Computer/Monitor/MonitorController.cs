@@ -1,30 +1,38 @@
 using UnityEngine;
 using System.Collections;
 
-public class MonitorController : MonoBehaviour
+public class MonitorController : SingletonMono<MonitorController>
 {
-    [SerializeField] private Monitor[] _monitors;
-
+    private Monitor[] _monitors = new Monitor[4];
     public Monitor[] Monitors => _monitors;
 
     private Monitor _selectedMonitor;
     private int _monitorIndex;
-
-    private Coroutine _clickCoroutine;
+    private Coroutine _interactCoroutine;
     private bool _canSelect = true;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        for (int i = 0; i < _monitors.Length; i++)
+        {
+            _monitors[i] = transform.GetChild(i).GetComponent<Monitor>();
+        }
+    }
 
     private void Update()
     {
         if (InputManager.GetPlayerPress())
         {
-            _clickCoroutine = StartCoroutine(Interact());
+            _interactCoroutine = StartCoroutine(Interact());
         }
 
         if (InputManager.GetPlayerRelease() && _canSelect)
         {
-            if (_clickCoroutine != null)
+            if (_interactCoroutine != null)
             {
-                StopCoroutine(_clickCoroutine);
+                StopCoroutine(_interactCoroutine);
             }
             SwitchMonitor();
         }
@@ -68,7 +76,7 @@ public class MonitorController : MonoBehaviour
 
         if (InputManager.GetPlayerHold())
         {
-            _selectedMonitor.Interact();
+            _selectedMonitor.Click();
         }
     }
 }

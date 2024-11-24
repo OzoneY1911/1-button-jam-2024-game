@@ -3,14 +3,13 @@ using UnityEngine;
 public class Monitor : MonoBehaviour
 {
     [SerializeField] private MeshRenderer _outlineRenderer;
-    [SerializeField] private GameObject _popUp;
+    [SerializeField] private GameObject _popUpObject;
 
-    public GameObject PopUp => _popUp;
+    public GameObject PopUpObject => _popUpObject;
+    public PopUp PopUpScript => _popUpObject.GetComponent<PopUp>();
+    public bool HasPopUp => _popUpObject.activeSelf;
 
-    private Material _outlineMaterial => _outlineRenderer.materials[1];
     private MaterialPropertyBlock _enableOutlinePropertyBlock;
-
-    public bool HasPopUp;
 
     private void Awake()
     {
@@ -29,12 +28,11 @@ public class Monitor : MonoBehaviour
         _outlineRenderer.SetPropertyBlock(_enableOutlinePropertyBlock, 1);
     }
 
-    public void Interact()
+    public void Click()
     {
         if (HasPopUp)
         {
-            _popUp.SetActive(false);
-            HasPopUp = false;
+            PopUpScript.Close();
         }
     }
 }

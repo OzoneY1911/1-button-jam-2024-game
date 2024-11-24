@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: MonitorMAT
-  m_Shader: {fileID: -6465566751694194690, guid: 73aeb5181d3b56c4a9822e1f9e7ede09, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 7121490d9ef5fb0409482a87702682c4, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []

@@ -1,15 +1,18 @@
 using System.Collections;
 using UnityEngine;
 
-public class PopUpController : MonoBehaviour
+public class PopUpController : SingletonMono<PopUpController>
 {
-    [SerializeField] private Transform[] _screens;
     [SerializeField] private Sprite[] _virusSprites;
-    [SerializeField] private Sprite[] _antiVirusSprites;
+    [SerializeField] private Sprite[] _antivirusSprites;
 
+    public Sprite[] VirusSprites => _virusSprites;
+    public Sprite[] AntivirusSprites => _antivirusSprites;
+
+    private Monitor[] _monitors => MonitorController.Instance.Monitors;
     private bool _canSpawn = true;
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (_canSpawn)
         {
@@ -19,16 +22,13 @@ public class PopUpController : MonoBehaviour
 
     private void SpawnPopUp()
     {
-        Transform targetScreen = _screens[Random.Range(0, _screens.Length)];
-        Monitor targetMonitor = targetScreen.parent.GetComponent<Monitor>();
+        Monitor targetMonitor = _monitors[Random.Range(0, _monitors.Length)];
         if (!targetMonitor.HasPopUp)
         {
-            targetMonitor.PopUp.SetActive(true);
+            targetMonitor.PopUpObject.SetActive(true);
 
             Vector3 randomPos = new Vector3(Random.Range(0f, 0.3f), Random.Range(0f, 0.3f), 0f);
-            targetMonitor.PopUp.transform.localPosition = randomPos;
-
-            targetMonitor.HasPopUp = true;
+            targetMonitor.PopUpObject.transform.localPosition = randomPos;
         }
     }
 
