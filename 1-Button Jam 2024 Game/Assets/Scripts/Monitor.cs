@@ -2,8 +2,12 @@ using UnityEngine;
 
 public class Monitor : MonoBehaviour
 {
-    private MeshRenderer _renderer => GetComponent<MeshRenderer>();
-    private Material _outlineMaterial => _renderer.materials[1];
+    [SerializeField] private MeshRenderer _outlineRenderer;
+    [SerializeField] private GameObject _popUp;
+
+    public GameObject PopUp => _popUp;
+
+    private Material _outlineMaterial => _outlineRenderer.materials[1];
     private MaterialPropertyBlock _enableOutlinePropertyBlock;
 
     public bool HasPopUp;
@@ -16,20 +20,20 @@ public class Monitor : MonoBehaviour
     public void Select()
     {
         _enableOutlinePropertyBlock.SetFloat("_Enable_Outline", 1f);
-        _renderer.SetPropertyBlock(_enableOutlinePropertyBlock, 1);
+        _outlineRenderer.SetPropertyBlock(_enableOutlinePropertyBlock, 1);
     }
 
     public void Deselect()
     {
         _enableOutlinePropertyBlock.SetFloat("_Enable_Outline", 0f);
-        _renderer.SetPropertyBlock(_enableOutlinePropertyBlock, 1);
+        _outlineRenderer.SetPropertyBlock(_enableOutlinePropertyBlock, 1);
     }
 
     public void Interact()
     {
         if (HasPopUp)
         {
-            Destroy(transform.GetChild(0).GetChild(transform.GetChild(0).childCount - 1).gameObject);
+            _popUp.SetActive(false);
             HasPopUp = false;
         }
     }

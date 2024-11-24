@@ -4,7 +4,8 @@ using UnityEngine;
 public class PopUpController : MonoBehaviour
 {
     [SerializeField] private Transform[] _screens;
-    [SerializeField] private GameObject[] _popUps;
+    [SerializeField] private Sprite[] _virusSprites;
+    [SerializeField] private Sprite[] _antiVirusSprites;
 
     private bool _canSpawn = true;
 
@@ -19,14 +20,15 @@ public class PopUpController : MonoBehaviour
     private void SpawnPopUp()
     {
         Transform targetScreen = _screens[Random.Range(0, _screens.Length)];
-        if (!targetScreen.parent.GetComponent<Monitor>().HasPopUp)
+        Monitor targetMonitor = targetScreen.parent.GetComponent<Monitor>();
+        if (!targetMonitor.HasPopUp)
         {
-            GameObject popUp = Instantiate(_popUps[0], targetScreen);
+            targetMonitor.PopUp.SetActive(true);
 
             Vector3 randomPos = new Vector3(Random.Range(0f, 0.3f), Random.Range(0f, 0.3f), 0f);
-            popUp.transform.localPosition = randomPos;
+            targetMonitor.PopUp.transform.localPosition = randomPos;
 
-            targetScreen.parent.GetComponent<Monitor>().HasPopUp = true;
+            targetMonitor.HasPopUp = true;
         }
     }
 
