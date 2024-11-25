@@ -72,6 +72,8 @@ public class MonitorController : SingletonMono<MonitorController>
 
         _canSelect = false;
 
+        _selectedMonitor.ClickStart();
+
         yield return new WaitForSecondsRealtime(0.75f);
 
         if (InputManager.GetPlayerHold())

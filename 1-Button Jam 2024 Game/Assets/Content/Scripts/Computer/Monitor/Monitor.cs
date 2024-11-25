@@ -1,4 +1,4 @@
-using NUnit.Framework.Constraints;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Monitor : MonoBehaviour
@@ -10,32 +10,49 @@ public class Monitor : MonoBehaviour
     public PopUp PopUpScript => _popUpObject.GetComponent<PopUp>();
     public bool HasPopUp => _popUpObject.activeSelf;
 
-    private MaterialPropertyBlock _colorPropertyBlock;
+    private MaterialPropertyBlock _indicator1Block;
+    private MaterialPropertyBlock _indicator2Block;
 
     private void Awake()
     {
-        _colorPropertyBlock = new MaterialPropertyBlock();
+        _indicator1Block = new MaterialPropertyBlock();
+        _indicator2Block = new MaterialPropertyBlock();
     }
 
     public void Select()
     {
-        _colorPropertyBlock.SetColor("_BaseColor", Color.red);
-        _colorPropertyBlock.SetColor("_EmissionColor", Color.red);
-        _indicatorRenderer.SetPropertyBlock(_colorPropertyBlock, 1);
+        ChangeIndicatorColor(Color.red, _indicator1Block, 2);
     }
 
     public void Deselect()
     {
-        _colorPropertyBlock.SetColor("_BaseColor", new Color(170f, 255f, 0f));
-        _colorPropertyBlock.SetColor("_EmissionColor", new Color(170f, 255f, 0f));
-        _indicatorRenderer.SetPropertyBlock(_colorPropertyBlock, 1);
+        ChangeIndicatorColor(new Color(0.66f, 1f, 0f), _indicator1Block, 2);
+    }
+
+    public void ClickStart()
+    {
+        ChangeIndicatorColor(Color.white, _indicator2Block, 1);
+    }
+
+    public void ClickEnd()
+    {
+        ChangeIndicatorColor(new Color(0.66f, 1f, 0f), _indicator2Block, 1);
     }
 
     public void Click()
     {
+        ClickEnd();
+
         if (HasPopUp)
         {
             PopUpScript.Close();
         }
+    }
+
+    private void ChangeIndicatorColor(in Color color, in MaterialPropertyBlock block, in int materialIndex)
+    {
+        block.SetColor("_BaseColor", color);
+        block.SetColor("_EmissionColor", color);
+        _indicatorRenderer.SetPropertyBlock(block, materialIndex);
     }
 }
