@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6666666, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -190,16 +190,16 @@ Transform:
   m_LocalScale: {x: 0.74367, y: 0.74367, z: 0.74367}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 633769581537650790}
-  - {fileID: 980501421883628039}
-  - {fileID: 2573668525055543539}
-  - {fileID: 3862590889507029820}
-  - {fileID: 4054992974101121299}
-  - {fileID: 1319066014845167811}
-  - {fileID: 1541162136727059642}
-  - {fileID: 8794556254301976827}
-  - {fileID: 511948089021893566}
   - {fileID: 6128363965559835948}
+  - {fileID: 511948089021893566}
+  - {fileID: 1319066014845167811}
+  - {fileID: 2573668525055543539}
+  - {fileID: 8794556254301976827}
+  - {fileID: 4054992974101121299}
+  - {fileID: 980501421883628039}
+  - {fileID: 1541162136727059642}
+  - {fileID: 3862590889507029820}
+  - {fileID: 633769581537650790}
   - {fileID: 7643124524790224963}
   - {fileID: 3271301545159762914}
   m_Father: {fileID: 0}
@@ -357,7 +357,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 3652496891162748219, guid: 92e4ee433d887064399d9d3e6abb227f, type: 3}
+  - {fileID: 2100000, guid: 779864321e53b84468657e9c0287fb35, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

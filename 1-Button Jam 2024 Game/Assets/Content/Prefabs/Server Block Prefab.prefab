@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6032116352418136806}
   - component: {fileID: 4376970652969700281}
   - component: {fileID: 164872551437987435}
+  - component: {fileID: 6082203756584976249}
   m_Layer: 0
   m_Name: Server Block Prefab
   m_TagString: Untagged
@@ -65,7 +66,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2820365011312825431, guid: 112e3461e71166d47adfd2532d9f5933, type: 3}
-  - {fileID: 2100000, guid: ac9a7fb0f432bf94293c1cdf83b7f87f, type: 2}
+  - {fileID: 2100000, guid: ac1af901f1db50740aac90e62ace8711, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -87,3 +88,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6082203756584976249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155237438044729938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a1de4f52f0d604c97697762bd7a1fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _plugSpeed: 1
+  _targetZ: -0.22

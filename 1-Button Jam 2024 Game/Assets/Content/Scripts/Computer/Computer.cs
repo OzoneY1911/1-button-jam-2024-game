@@ -5,6 +5,7 @@ public class Computer : SingletonMono<Computer>
 {
     [SerializeField] private Slider _healthBar;
     [SerializeField] private int _maxHealth = 100;
+    [SerializeField] private ServerBlock[] _serverBlocks;
 
     private int _health;
 
@@ -24,6 +25,7 @@ public class Computer : SingletonMono<Computer>
             _health = 0;
         }
         UpdateHealthBar();
+        UpdateServerBlocks();
     }
 
     public void Recover(in int healthPoints)
@@ -34,10 +36,26 @@ public class Computer : SingletonMono<Computer>
             _health = _maxHealth;
         }
         UpdateHealthBar();
+        UpdateServerBlocks();
     }
 
     private void UpdateHealthBar()
     {
         _healthBar.value = (float)_health / _maxHealth;
+    }
+
+    private void UpdateServerBlocks()
+    {
+        for (int i = 0; i < _serverBlocks.Length; i++)
+        {
+            if (i <= (_health / 10) - 1)
+            {
+                _serverBlocks[i].PlugInTrigger = true;
+            }
+            else
+            {
+                _serverBlocks[i].PlugOutTrigger = true;
+            }
+        }
     }
 }
