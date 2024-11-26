@@ -28,13 +28,23 @@ public class MonitorController : SingletonMono<MonitorController>
             _interactCoroutine = StartCoroutine(Interact());
         }
 
-        if (InputManager.GetPlayerRelease() && _canSelect)
+        if (InputManager.GetPlayerRelease())
         {
-            if (_interactCoroutine != null)
+            if (_canSelect)
             {
-                StopCoroutine(_interactCoroutine);
+                if (_interactCoroutine != null)
+                {
+                    StopCoroutine(_interactCoroutine);
+                }
+                SwitchMonitor();
             }
-            SwitchMonitor();
+            else
+            {
+                if (_selectedMonitor != null)
+                {
+                    _selectedMonitor.ClickEnd();
+                }
+            }
         }
     }
 
