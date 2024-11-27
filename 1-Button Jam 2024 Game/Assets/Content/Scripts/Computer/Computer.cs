@@ -8,6 +8,7 @@ public class Computer : SingletonMono<Computer>
     [SerializeField] private ServerBlock[] _serverBlocks;
 
     private int _health;
+    public int Health => _health;
 
     protected override void Awake()
     {

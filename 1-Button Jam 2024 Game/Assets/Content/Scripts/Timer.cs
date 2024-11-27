@@ -1,4 +1,3 @@
-using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -8,6 +7,8 @@ public class Timer : MonoBehaviour
 
     private float _timeLeft;
     private TextMeshPro _timerTMPro => GetComponent<TextMeshPro>();
+
+    public float TimeLeft => _timeLeft;
 
     private void Awake()
     {
@@ -36,11 +37,11 @@ public class Timer : MonoBehaviour
 
         if (seconds > 9)
         {
-            _timerTMPro.text = $"{minutes}:{seconds}";
+            _timerTMPro.text = $"0{minutes}:{seconds}";
         }
         else
         {
-            _timerTMPro.text = $"{minutes}:0{seconds}";
+            _timerTMPro.text = $"0{minutes}:0{seconds}";
         }
     }
 }
