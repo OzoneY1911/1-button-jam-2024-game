@@ -23,7 +23,7 @@ public class MonitorController : SingletonMono<MonitorController>
 
     private void Update()
     {
-        if (InputManager.GetPlayerPress())
+        if (InputManager.GetPlayerPress() && _selectedMonitor != null)
         {
             _interactCoroutine = StartCoroutine(Interact());
         }
