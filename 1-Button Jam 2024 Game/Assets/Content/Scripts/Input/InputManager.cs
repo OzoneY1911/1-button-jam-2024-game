@@ -1,15 +1,21 @@
 using UnityEngine;
 
-public class InputManager : MonoBehaviour
+public class InputManager : SingletonMono<InputManager>
 {
     private static InputSystem_Actions _playerActions;
 
-    #region Core Methods
-
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         _playerActions = new InputSystem_Actions();
+
+        Cursor.lockState = CursorLockMode.Locked;
+
+        DontDestroyOnLoad(gameObject);
     }
+
+    #region Core Methods
 
     private void OnEnable()
     {
