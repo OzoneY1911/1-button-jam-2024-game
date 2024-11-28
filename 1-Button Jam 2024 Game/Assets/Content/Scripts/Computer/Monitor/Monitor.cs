@@ -1,10 +1,12 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Monitor : MonoBehaviour
 {
+    [SerializeField] private MonitorType _type;
     [SerializeField] private MeshRenderer _indicatorRenderer;
     [SerializeField] private GameObject _popUpObject;
+
+    public MonitorType Type => _type;
 
     public GameObject PopUpObject => _popUpObject;
     public PopUp PopUpScript => _popUpObject.GetComponent<PopUp>();

@@ -3,11 +3,14 @@ using UnityEngine;
 
 public class PopUpController : SingletonMono<PopUpController>
 {
-    [SerializeField] private Sprite[] _virusSprites;
-    [SerializeField] private Sprite[] _antivirusSprites;
-
-    public Sprite[] VirusSprites => _virusSprites;
-    public Sprite[] AntivirusSprites => _antivirusSprites;
+    [SerializeField] private Sprite[] _defaultVSprites;
+    [SerializeField] private Sprite[] _defaultAVSprites;
+    [SerializeField] private Sprite[] _consoleVSprites;
+    [SerializeField] private Sprite[] _consoleAVSprites;
+    [SerializeField] private Sprite[] _abstractVSprites;
+    [SerializeField] private Sprite[] _abstractAVSprites;
+    [SerializeField] private Sprite[] _smileysVSprites;
+    [SerializeField] private Sprite[] _smileysAVSprites;
 
     private Monitor[] _monitors => MonitorController.Instance.Monitors;
     private bool _canSpawn = true;
@@ -25,10 +28,21 @@ public class PopUpController : SingletonMono<PopUpController>
         Monitor targetMonitor = _monitors[Random.Range(0, _monitors.Length)];
         if (!targetMonitor.HasPopUp)
         {
-            targetMonitor.PopUpObject.SetActive(true);
-
-            Vector3 randomPos = new Vector3(Random.Range(0f, 0.3f), Random.Range(0f, 0.3f), 0f);
-            targetMonitor.PopUpObject.transform.localPosition = randomPos;
+            switch (targetMonitor.Type)
+            {
+                case MonitorType.Default:
+                    targetMonitor.PopUpScript.Emerge(_defaultVSprites, _defaultAVSprites);
+                    break;
+                case MonitorType.Console:
+                    targetMonitor.PopUpScript.Emerge(_consoleVSprites, _consoleAVSprites);
+                    break;
+                case MonitorType.Abstract:
+                    targetMonitor.PopUpScript.Emerge(_abstractVSprites, _abstractAVSprites);
+                    break;
+                case MonitorType.Smileys:
+                    targetMonitor.PopUpScript.Emerge(_smileysVSprites, _smileysAVSprites);
+                    break;
+            }
         }
     }
 

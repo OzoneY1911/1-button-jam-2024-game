@@ -13,19 +13,28 @@ public class PopUp : MonoBehaviour
     private Image _image => GetComponent<Image>();
     private Coroutine _vanishCoroutine;
 
-    private void OnEnable()
+    public void Emerge(in Sprite[] vSprites, in Sprite[] avSprites)
     {
+        gameObject.SetActive(true);
+        RandomizePosition();
+
         _type = (PopUpType)Random.Range(0, 2);
         switch (_type)
         {
             case PopUpType.Virus:
-                _image.sprite = _popUpController.VirusSprites[Random.Range(0, _popUpController.VirusSprites.Length)];
+                _image.sprite = vSprites[Random.Range(0, vSprites.Length)];
                 break;
             case PopUpType.Antivirus:
-                _image.sprite = _popUpController.AntivirusSprites[Random.Range(0, _popUpController.AntivirusSprites.Length)];
+                _image.sprite = avSprites[Random.Range(0, avSprites.Length)];
                 break;
         }
         _vanishCoroutine = StartCoroutine(VanishCooldown());
+    }
+
+    private void RandomizePosition()
+    {
+        Vector3 randomPos = new Vector3(Random.Range(0f, 0.3f), Random.Range(0f, 0.3f), 0f);
+        transform.localPosition = randomPos;
     }
 
     private void OnDisable()
