@@ -32,15 +32,16 @@ public class ButtonSelector : MonoBehaviour
     {
         if (_canPress)
         {
-            _buttonIndex++;
-            if (_buttonIndex == _buttons.Length)
-            {
-                _buttonIndex = 0;
-            }
+            MoveToNextButton();
         }
         else
         {
             _canPress = true;
+        }
+
+        if (!_buttons[_buttonIndex].interactable)
+        {
+            MoveToNextButton();
         }
 
         _buttons[_buttonIndex].Select();
@@ -59,6 +60,15 @@ public class ButtonSelector : MonoBehaviour
         if (InputManager.GetPlayerHold())
         {
             _buttons[_buttonIndex].onClick.Invoke();
+        }
+    }
+
+    private void MoveToNextButton()
+    {
+        _buttonIndex++;
+        if (_buttonIndex == _buttons.Length)
+        {
+            _buttonIndex = 0;
         }
     }
 }
