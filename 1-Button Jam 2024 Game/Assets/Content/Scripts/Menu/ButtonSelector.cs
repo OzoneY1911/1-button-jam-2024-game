@@ -5,11 +5,20 @@ using UnityEngine.UI;
 public class ButtonSelector : MonoBehaviour
 {
     [SerializeField] private Button[] _buttons;
+    [SerializeField] private Button _hardModeButton;
 
     private Coroutine _pressCoroutine;
     private int _buttonIndex;
     private bool _canSelect = true;
     private bool _canPress;
+
+    private void Start()
+    {
+        if (Challenge.IsCompleted)
+        {
+            _hardModeButton.interactable = true;
+        }
+    }
 
     private void Update()
     {

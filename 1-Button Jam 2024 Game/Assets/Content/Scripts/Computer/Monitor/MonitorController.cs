@@ -84,11 +84,21 @@ public class MonitorController : SingletonMono<MonitorController>
 
         _selectedMonitor.ClickStart();
 
-        yield return new WaitForSecondsRealtime(0.75f);
-
-        if (InputManager.GetPlayerHold())
+        if (GameController.Instance.GameIsFinished)
         {
-            _selectedMonitor.Click();
+            yield return new WaitForSecondsRealtime(2f);
+            if (InputManager.GetPlayerHold())
+            {
+                LevelLoader.Instance.LoadLevel("MainMenu");
+            }
+        }
+        else
+        {
+            yield return new WaitForSecondsRealtime(0.75f);
+            if (InputManager.GetPlayerHold())
+            {
+                _selectedMonitor.Click();
+            }
         }
     }
 }

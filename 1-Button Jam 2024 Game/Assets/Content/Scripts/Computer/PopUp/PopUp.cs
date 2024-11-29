@@ -18,7 +18,15 @@ public class PopUp : MonoBehaviour
         gameObject.SetActive(true);
         RandomizePosition();
 
-        _type = (PopUpType)Random.Range(0, 2);
+        if (Random.Range(0, 10) > 6)
+        {
+            _type = PopUpType.Antivirus;
+        }
+        else
+        {
+            _type = PopUpType.Virus;
+        }
+
         switch (_type)
         {
             case PopUpType.Virus:
@@ -33,7 +41,7 @@ public class PopUp : MonoBehaviour
 
     private void RandomizePosition()
     {
-        Vector3 randomPos = new Vector3(Random.Range(0f, 0.3f), Random.Range(0f, 0.3f), 0f);
+        Vector3 randomPos = new Vector3(Random.Range(-.275f, .275f), Random.Range(-.2f, .2f), 0f);
         transform.localPosition = randomPos;
     }
 

@@ -11,8 +11,6 @@ public class InputManager : SingletonMono<InputManager>
         _playerActions = new InputSystem_Actions();
 
         Cursor.lockState = CursorLockMode.Locked;
-
-        DontDestroyOnLoad(gameObject);
     }
 
     #region Core Methods

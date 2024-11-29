@@ -1,13 +1,17 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class GameController : MonoBehaviour
+public class GameController : SingletonMono<GameController>
 {
     [Header("Game Timer")]
-    [SerializeField] Timer _gameTimer;
+    [SerializeField] private Timer _gameTimer;
 
     [Header("Game End Screens")]
-    [SerializeField] GameObject _winScreen;
-    [SerializeField] GameObject _loseScreen;
+    [SerializeField] private GameObject _winScreen;
+    [SerializeField] private GameObject _loseScreen;
+
+    private bool _gameIsFinished;
+    public bool GameIsFinished => _gameIsFinished;
 
     private void FixedUpdate()
     {
@@ -28,10 +32,12 @@ public class GameController : MonoBehaviour
     private void WinGame()
     {
         _winScreen.SetActive(true);
+        _gameIsFinished = true;
     }
 
     private void LoseGame()
     {
         _loseScreen.SetActive(true);
+        _gameIsFinished = true;
     }
 }
