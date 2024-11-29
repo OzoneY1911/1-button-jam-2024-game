@@ -675,15 +675,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d6f9177a64ac4431d814559bd5269bd2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.46595532
+      value: -0.5549
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d6f9177a64ac4431d814559bd5269bd2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.91
+      value: 0.8474
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d6f9177a64ac4431d814559bd5269bd2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.012
+      value: 2.3252
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d6f9177a64ac4431d814559bd5269bd2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1047,7 +1047,7 @@ Light:
   m_InnerSpotAngle: 90.3335
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -3176,7 +3176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Version: 3
   m_UsePipelineSettings: 1
-  m_AdditionalLightsShadowResolutionTier: 1
+  m_AdditionalLightsShadowResolutionTier: 2
   m_LightLayerMask: 1
   m_RenderingLayers: 1
   m_CustomShadowLayers: 0
