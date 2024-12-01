@@ -105,7 +105,14 @@ public class MonitorController : SingletonMono<MonitorController>
                 }
                 else if (GameController.Instance.GameIsLost)
                 {
-                    LevelLoader.Instance.LoadLevel(SceneManager.GetActiveScene().name);
+                    if (HardModeScore.Instance == null)
+                    {
+                        LevelLoader.Instance.LoadLevel(SceneManager.GetActiveScene().name);
+                    }
+                    else
+                    {
+                        LevelLoader.Instance.LoadLevel("MainMenu");
+                    }
                 }
             }
         }
