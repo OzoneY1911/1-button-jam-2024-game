@@ -1251,21 +1251,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d89818c5c688d42891674d29efdbf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defaultVSprites:
-  - {fileID: -625133649, guid: f3839d453f706e84dad6cde88d3b53da, type: 3}
-  _defaultAVSprites:
-  - {fileID: -1010236672, guid: f3839d453f706e84dad6cde88d3b53da, type: 3}
-  _consoleVSprites:
-  - {fileID: 1674187192, guid: f3839d453f706e84dad6cde88d3b53da, type: 3}
-  _consoleAVSprites:
-  - {fileID: -1010236672, guid: f3839d453f706e84dad6cde88d3b53da, type: 3}
-  _abstractVSprites:
+  _virusSprites:
   - {fileID: 1021278656, guid: f3839d453f706e84dad6cde88d3b53da, type: 3}
-  _abstractAVSprites:
-  - {fileID: -1010236672, guid: f3839d453f706e84dad6cde88d3b53da, type: 3}
-  _smileysVSprites:
+  - {fileID: 1674187192, guid: f3839d453f706e84dad6cde88d3b53da, type: 3}
+  - {fileID: -625133649, guid: f3839d453f706e84dad6cde88d3b53da, type: 3}
   - {fileID: 1347184407, guid: f3839d453f706e84dad6cde88d3b53da, type: 3}
-  _smileysAVSprites:
+  _antiVirusSprites:
   - {fileID: -1010236672, guid: f3839d453f706e84dad6cde88d3b53da, type: 3}
 --- !u!114 &725047727
 MonoBehaviour:

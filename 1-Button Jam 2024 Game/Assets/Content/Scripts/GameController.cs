@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameController : SingletonMono<GameController>
@@ -33,6 +32,7 @@ public class GameController : SingletonMono<GameController>
 
     private void WinGame()
     {
+        Challenge.IsCompleted = true;
         _winScreen.SetActive(true);
         _gameIsWon = true;
         Time.timeScale = 0f;

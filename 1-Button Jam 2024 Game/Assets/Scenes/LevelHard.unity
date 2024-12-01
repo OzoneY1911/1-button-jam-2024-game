@@ -738,7 +738,7 @@ PrefabInstance:
       objectReference: {fileID: -1010236672, guid: f3839d453f706e84dad6cde88d3b53da, type: 3}
     - target: {fileID: 3992472551116961044, guid: 1e37a5bc034c17548bef38376251e98e, type: 3}
       propertyPath: m_PreserveAspect
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5694680100583672042, guid: 1e37a5bc034c17548bef38376251e98e, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -1428,22 +1428,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d89818c5c688d42891674d29efdbf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defaultVSprites:
-  - {fileID: -625133649, guid: f3839d453f706e84dad6cde88d3b53da, type: 3}
-  _defaultAVSprites:
-  - {fileID: -1010236672, guid: f3839d453f706e84dad6cde88d3b53da, type: 3}
-  _consoleVSprites:
-  - {fileID: 1674187192, guid: f3839d453f706e84dad6cde88d3b53da, type: 3}
-  _consoleAVSprites:
-  - {fileID: -1010236672, guid: f3839d453f706e84dad6cde88d3b53da, type: 3}
-  _abstractVSprites:
+  _virusSprites:
   - {fileID: 1021278656, guid: f3839d453f706e84dad6cde88d3b53da, type: 3}
-  _abstractAVSprites:
-  - {fileID: -1010236672, guid: f3839d453f706e84dad6cde88d3b53da, type: 3}
-  _smileysVSprites:
+  - {fileID: 1674187192, guid: f3839d453f706e84dad6cde88d3b53da, type: 3}
+  - {fileID: -625133649, guid: f3839d453f706e84dad6cde88d3b53da, type: 3}
   - {fileID: 1347184407, guid: f3839d453f706e84dad6cde88d3b53da, type: 3}
-  _smileysAVSprites:
+  - {fileID: 21300000, guid: cb10eb4b2dcdb9141820651781cf9fdb, type: 3}
+  - {fileID: -1981830024, guid: f3839d453f706e84dad6cde88d3b53da, type: 3}
+  - {fileID: -154516701, guid: f3839d453f706e84dad6cde88d3b53da, type: 3}
+  _antiVirusSprites:
   - {fileID: -1010236672, guid: f3839d453f706e84dad6cde88d3b53da, type: 3}
+  - {fileID: 21300000, guid: 60f089c00cdb9444f8edba8162e934e5, type: 3}
 --- !u!114 &725047727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2002,7 +1997,7 @@ PrefabInstance:
       objectReference: {fileID: -1010236672, guid: f3839d453f706e84dad6cde88d3b53da, type: 3}
     - target: {fileID: 3992472551116961044, guid: 1e37a5bc034c17548bef38376251e98e, type: 3}
       propertyPath: m_PreserveAspect
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5694680100583672042, guid: 1e37a5bc034c17548bef38376251e98e, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -2305,7 +2300,7 @@ PrefabInstance:
       objectReference: {fileID: -1010236672, guid: f3839d453f706e84dad6cde88d3b53da, type: 3}
     - target: {fileID: 3992472551116961044, guid: 1e37a5bc034c17548bef38376251e98e, type: 3}
       propertyPath: m_PreserveAspect
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5694680100583672042, guid: 1e37a5bc034c17548bef38376251e98e, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -2410,7 +2405,7 @@ PrefabInstance:
       objectReference: {fileID: -1010236672, guid: f3839d453f706e84dad6cde88d3b53da, type: 3}
     - target: {fileID: 3992472551116961044, guid: 1e37a5bc034c17548bef38376251e98e, type: 3}
       propertyPath: m_PreserveAspect
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5694680100583672042, guid: 1e37a5bc034c17548bef38376251e98e, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -2597,7 +2592,7 @@ PrefabInstance:
       objectReference: {fileID: -1010236672, guid: f3839d453f706e84dad6cde88d3b53da, type: 3}
     - target: {fileID: 3992472551116961044, guid: 1e37a5bc034c17548bef38376251e98e, type: 3}
       propertyPath: m_PreserveAspect
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5694680100583672042, guid: 1e37a5bc034c17548bef38376251e98e, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -3311,7 +3306,7 @@ PrefabInstance:
       objectReference: {fileID: -1010236672, guid: f3839d453f706e84dad6cde88d3b53da, type: 3}
     - target: {fileID: 3992472551116961044, guid: 1e37a5bc034c17548bef38376251e98e, type: 3}
       propertyPath: m_PreserveAspect
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5694680100583672042, guid: 1e37a5bc034c17548bef38376251e98e, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -3795,7 +3790,7 @@ PrefabInstance:
       objectReference: {fileID: -1010236672, guid: f3839d453f706e84dad6cde88d3b53da, type: 3}
     - target: {fileID: 3992472551116961044, guid: 1e37a5bc034c17548bef38376251e98e, type: 3}
       propertyPath: m_PreserveAspect
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5694680100583672042, guid: 1e37a5bc034c17548bef38376251e98e, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -5075,7 +5070,7 @@ PrefabInstance:
       objectReference: {fileID: -1010236672, guid: f3839d453f706e84dad6cde88d3b53da, type: 3}
     - target: {fileID: 3992472551116961044, guid: 1e37a5bc034c17548bef38376251e98e, type: 3}
       propertyPath: m_PreserveAspect
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6448258757197785781, guid: 1e37a5bc034c17548bef38376251e98e, type: 3}
       propertyPath: m_IsActive

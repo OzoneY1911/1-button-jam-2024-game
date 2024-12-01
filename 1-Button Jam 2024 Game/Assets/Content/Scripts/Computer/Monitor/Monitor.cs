@@ -6,8 +6,6 @@ public class Monitor : MonoBehaviour
     [SerializeField] private MeshRenderer _indicatorRenderer;
     [SerializeField] private GameObject _popUpObject;
 
-    public MonitorType Type => _type;
-
     public GameObject PopUpObject => _popUpObject;
     public PopUp PopUpScript => _popUpObject.GetComponent<PopUp>();
     public bool HasPopUp => _popUpObject.activeSelf;

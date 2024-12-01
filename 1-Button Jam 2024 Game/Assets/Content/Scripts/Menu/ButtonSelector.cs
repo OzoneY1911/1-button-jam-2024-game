@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,6 +18,7 @@ public class ButtonSelector : MonoBehaviour
         if (Challenge.IsCompleted)
         {
             _hardModeButton.interactable = true;
+            _hardModeButton.GetComponent<TextMeshProUGUI>().text = "HARD MODE";
         }
     }
 
