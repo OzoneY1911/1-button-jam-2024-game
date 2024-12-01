@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Monitor : MonoBehaviour
 {
-    [SerializeField] private MonitorType _type;
     [SerializeField] private MeshRenderer _indicatorRenderer;
     [SerializeField] private GameObject _popUpObject;
 

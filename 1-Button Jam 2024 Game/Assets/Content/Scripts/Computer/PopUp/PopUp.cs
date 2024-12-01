@@ -30,6 +30,7 @@ public class PopUp : MonoBehaviour
         switch (_type)
         {
             case PopUpType.Virus:
+                AudioManager.instance.PlaySFX(AudioManager.SoundEffects.Error);
                 _image.sprite = vSprites[Random.Range(0, vSprites.Length)];
                 break;
             case PopUpType.Antivirus:
@@ -58,6 +59,7 @@ public class PopUp : MonoBehaviour
         if (_type == PopUpType.Virus)
         {
             _computer.Damage(20);
+            AudioManager.instance.PlaySFX(AudioManager.SoundEffects.Fail);
         }
 
         gameObject.SetActive(false);
@@ -67,6 +69,7 @@ public class PopUp : MonoBehaviour
     {
         if (_type == PopUpType.Antivirus)
         {
+            AudioManager.instance.PlaySFX(AudioManager.SoundEffects.Success);
             _computer.Recover(20);
         }
         else

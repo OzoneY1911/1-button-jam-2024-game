@@ -32,6 +32,7 @@ public class GameController : SingletonMono<GameController>
 
     private void WinGame()
     {
+        AudioManager.instance.PlayMusic(AudioManager.MusicClips.End);
         Challenge.IsCompleted = true;
         _winScreen.SetActive(true);
         _gameIsWon = true;
@@ -40,6 +41,7 @@ public class GameController : SingletonMono<GameController>
 
     private void LoseGame()
     {
+        AudioManager.instance.PlayMusic(AudioManager.MusicClips.Challenge);
         _loseScreen.SetActive(true);
         _gameIsLost = true;
         Time.timeScale = 0f;

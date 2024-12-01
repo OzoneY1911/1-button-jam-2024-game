@@ -39,7 +39,7 @@ public class Timer : MonoBehaviour
     private void UpdateTimer(float currentTime)
     {
         currentTime++;
-
+        
         float minutes = Mathf.FloorToInt(currentTime / 60f);
         float seconds = Mathf.FloorToInt(currentTime % 60f);
 
