@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class MonitorController : SingletonMono<MonitorController>
 {
-    private Monitor[] _monitors = new Monitor[4];
+    private Monitor[] _monitors;
     public Monitor[] Monitors => _monitors;
 
     private Monitor _selectedMonitor;
@@ -15,6 +15,15 @@ public class MonitorController : SingletonMono<MonitorController>
     protected override void Awake()
     {
         base.Awake();
+
+        if (HardModeScore.Instance == null)
+        {
+            _monitors = new Monitor[4];
+        }
+        else
+        {
+            _monitors = new Monitor[8];
+        }
 
         for (int i = 0; i < _monitors.Length; i++)
         {

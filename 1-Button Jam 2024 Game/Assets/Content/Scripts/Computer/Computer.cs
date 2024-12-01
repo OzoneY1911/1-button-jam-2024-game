@@ -47,9 +47,15 @@ public class Computer : SingletonMono<Computer>
 
     private void UpdateServerBlocks()
     {
+        int firstBrokenBlock = (_health / 10) - 1;
+        if (HardModeScore.Instance != null)
+        {
+            firstBrokenBlock /= 2;
+        }
+
         for (int i = 0; i < _serverBlocks.Length; i++)
         {
-            if (i <= (_health / 10) - 1)
+            if (i <= firstBrokenBlock)
             {
                 _serverBlocks[i].PlugInTrigger = true;
             }

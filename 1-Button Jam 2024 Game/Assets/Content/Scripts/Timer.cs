@@ -17,14 +17,22 @@ public class Timer : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_timeLeft > 0)
+        if (HardModeScore.Instance == null)
         {
-            _timeLeft -= Time.fixedDeltaTime;
-            UpdateTimer(_timeLeft);
+            if (_timeLeft > 0)
+            {
+                _timeLeft -= Time.fixedDeltaTime;
+                UpdateTimer(_timeLeft);
+            }
+            else
+            {
+                _timeLeft = 0;
+            }
         }
         else
         {
-            _timeLeft = 0;
+            _timeLeft += Time.fixedDeltaTime;
+            UpdateTimer(_timeLeft);
         }
     }
 

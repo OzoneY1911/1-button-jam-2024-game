@@ -69,6 +69,13 @@ public class PopUp : MonoBehaviour
         {
             _computer.Recover(20);
         }
+        else
+        {
+            if (HardModeScore.Instance != null)
+            {
+                HardModeScore.Instance.UpdateScore();
+            }
+        }
 
         gameObject.SetActive(false);
     }
