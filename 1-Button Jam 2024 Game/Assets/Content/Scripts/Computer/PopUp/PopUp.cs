@@ -18,7 +18,7 @@ public class PopUp : MonoBehaviour
         gameObject.SetActive(true);
         RandomizePosition();
 
-        if (Random.Range(0, 10) > 6)
+        if (Random.Range(0, 10) > 7)
         {
             _type = PopUpType.Antivirus;
         }

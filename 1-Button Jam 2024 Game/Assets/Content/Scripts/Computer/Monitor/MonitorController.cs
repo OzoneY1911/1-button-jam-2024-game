@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class MonitorController : SingletonMono<MonitorController>
 {
@@ -84,12 +85,19 @@ public class MonitorController : SingletonMono<MonitorController>
 
         _selectedMonitor.ClickStart();
 
-        if (GameController.Instance.GameIsFinished)
+        if (GameController.Instance.GameIsWon || GameController.Instance.GameIsLost)
         {
             yield return new WaitForSecondsRealtime(2f);
             if (InputManager.GetPlayerHold())
             {
-                LevelLoader.Instance.LoadLevel("MainMenu");
+                if (GameController.Instance.GameIsWon)
+                {
+                    LevelLoader.Instance.LoadLevel("MainMenu");
+                }
+                else if (GameController.Instance.GameIsLost)
+                {
+                    LevelLoader.Instance.LoadLevel(SceneManager.GetActiveScene().name);
+                }
             }
         }
         else

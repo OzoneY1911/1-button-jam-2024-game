@@ -10,8 +10,10 @@ public class GameController : SingletonMono<GameController>
     [SerializeField] private GameObject _winScreen;
     [SerializeField] private GameObject _loseScreen;
 
-    private bool _gameIsFinished;
-    public bool GameIsFinished => _gameIsFinished;
+    private bool _gameIsWon;
+    private bool _gameIsLost;
+    public bool GameIsWon => _gameIsWon;
+    public bool GameIsLost => _gameIsLost;
 
     private void FixedUpdate()
     {
@@ -32,12 +34,14 @@ public class GameController : SingletonMono<GameController>
     private void WinGame()
     {
         _winScreen.SetActive(true);
-        _gameIsFinished = true;
+        _gameIsWon = true;
+        Time.timeScale = 0f;
     }
 
     private void LoseGame()
     {
         _loseScreen.SetActive(true);
-        _gameIsFinished = true;
+        _gameIsLost = true;
+        Time.timeScale = 0f;
     }
 }

@@ -50,7 +50,7 @@ public class PopUpController : SingletonMono<PopUpController>
     {
         _canSpawn = false;
 
-        yield return new WaitForSeconds(Random.Range(0, 6));
+        yield return new WaitForSeconds(Random.Range(0.25f, 4.5f));
 
         SpawnPopUp();
 
