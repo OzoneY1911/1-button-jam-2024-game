@@ -32,7 +32,7 @@ public class GameController : SingletonMono<GameController>
 
     private void WinGame()
     {
-        AudioManager.instance.PlayMusic(AudioManager.MusicClips.End);
+        AudioManager.instance.PlayMusic(AudioManager.MusicClips.Challenge);
         Challenge.IsCompleted = true;
         _winScreen.SetActive(true);
         _gameIsWon = true;
